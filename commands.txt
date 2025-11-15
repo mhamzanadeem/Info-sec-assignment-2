@@ -1,0 +1,66 @@
+
+## 2.1 PKI Setup and Certificate Validation
+(.venv) PS C:\semester 6\INFO SEC assignment 2>  py scripts/gen_ca.py --out-dir certs --cn "My Test Root CA" --days 3650                                              
+Generated CA key -> certs\ca.key.pem    
+Generated CA cert -> certs\ca.cert.pem
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py scripts/gen_cert.py --out-dir certs --cn server.example.local --type server --days 825        
+Generated entity key -> certs\server.example.local.key.pem
+Generated entity cert -> certs\server.example.local.cert.pem
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py scripts/gen_cert.py --out-dir certs --cn client1 --type client --days 825
+Generated entity key -> certs\client1.key.pem
+Generated entity cert -> certs\client1.cert.pem
+(.venv) PS C:\semester 6\INFO SEC assignment 2> 
+
+
+## 2.2 
+
+-> stop mysqld.exe from task manager 
+
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py -m app.storage.db --init
+[DB] users table created.
+(.venv) PS C:\semester 6\INFO SEC assignment 2> docker exec -it securechat-db mysql -u scuser -p
+mysql> USE securechat;
+SHOW TABLES;
+DESCRIBE users;
+
+-------------Terminal 1 -------------
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py -m app.server
+assignment 2\certs\server.example.local.cert.pem
+Exists: True
+Looking for server key at: C:\semester 6\INFO SEC assignment 2\certs\server.example.local.key.pem
+Exists: True
+Looking for CA cert at: C:\semester 6\INFO SEC assignment 2\certs\ca.cert.pem
+Exists: True
+Server listening on ('0.0.0.0', 8443)
+TLS handshake complete with ('127.0.0.1', 55427)
+
+-------------Terminal 2 -------------
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py -m app.client
+Server response: {'status': 'ok'}
+Server response: {'status': 'ok'}
+(.venv) PS C:\semester 6\INFO SEC assignment 2> 
+
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py -m app.client
+Choose: 1) register 2) login
+> 1
+email: xyz@gmail.com
+username: hamza
+password: 1305
+Register response: {'status': 'ok'}
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py -m app.client
+Choose: 1) register 2) login
+> 2
+username: hamza
+password: 1305
+Login response: {'status': 'ok'}
+Session key established (hex): 564ffbfcbb9ae1b52f1be61540281b99
+You> hi
+You> how are u
+You> Peer> g
+Peer> fine
+
+You> exit
+You> /exit
+Peer initiated close
+(.venv) PS C:\semester 6\INFO SEC assignment 2> 
+(.venv) PS C:\semester 6\INFO SEC assignment 2> 
