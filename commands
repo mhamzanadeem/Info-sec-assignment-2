@@ -1,0 +1,12 @@
+
+## 2.1 PKI Setup and Certificate Validation
+(.venv) PS C:\semester 6\INFO SEC assignment 2>  py scripts/gen_ca.py --out-dir certs --cn "My Test Root CA" --days 3650                                              
+Generated CA key -> certs\ca.key.pem    
+Generated CA cert -> certs\ca.cert.pem
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py scripts/gen_cert.py --out-dir certs --cn server.example.local --type server --days 825        
+Generated entity key -> certs\server.example.local.key.pem
+Generated entity cert -> certs\server.example.local.cert.pem
+(.venv) PS C:\semester 6\INFO SEC assignment 2> py scripts/gen_cert.py --out-dir certs --cn client1 --type client --days 825
+Generated entity key -> certs\client1.key.pem
+Generated entity cert -> certs\client1.cert.pem
+(.venv) PS C:\semester 6\INFO SEC assignment 2> 
