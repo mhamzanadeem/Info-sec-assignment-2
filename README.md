@@ -7,7 +7,7 @@ You are provided only with the **project skeleton and file hierarchy**.
 Each file contains docstrings and `TODO` markers describing what to implement
 Your task is to:
 - Implement the **application-layer protocol**.
-- Integrate cryptographic primitives correctly to satisfy the assignment spec.
+- Integrate cryptographic primitives correctly to satisfy the assignment spec
 - Produce evidence of security properties via Wireshark, replay/tamper tests and signed session receipts.
 ## 🏗️ Folder Structure
 ```
