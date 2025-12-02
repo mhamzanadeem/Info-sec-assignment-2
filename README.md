@@ -3,7 +3,7 @@ This repository is the **official code skeleton** for your Assignment #2.
 You will build a **console-based, PKI-enabled Secure Chat System** in **Python**, demonstrating how cryptographic primitives combine to achieve:
 **Confidentiality, Integrity, Authenticity, and Non-Repudiation (CIANR)**.
 ## 🧩 Overview
-You are provided only with the **project skeleton and file hierarchy**.
+You are provided only with the **project skeleton and file hierarchy**
 Each file contains docstrings and `TODO` markers describing what to implement
 Your task is to:
 - Implement the **application-layer protocol**.
