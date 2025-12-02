@@ -4,7 +4,7 @@ You will build a **console-based, PKI-enabled Secure Chat System** in **Python**
 **Confidentiality, Integrity, Authenticity, and Non-Repudiation (CIANR)**.
 ## 🧩 Overview
 You are provided only with the **project skeleton and file hierarchy**.
-Each file contains docstrings and `TODO` markers describing what to implement.
+Each file contains docstrings and `TODO` markers describing what to implement
 Your task is to:
 - Implement the **application-layer protocol**.
 - Integrate cryptographic primitives correctly to satisfy the assignment spec.
